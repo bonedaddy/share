@@ -66,6 +66,12 @@ func New(includes, excludes []string) (*MemFS, error) {
 // will return os.ErrNotExist.
 //
 func (mfs *MemFS) Get(path string) (*Node, error) {
+	if Development {
+		path = filepath.Join("/", path)
+		path = filepath.Join(mfs.root.SysPath, path)
+		return newNode(path)
+	}
+
 	node, ok := mfs.mapPathNode[path]
 	if !ok {
 		return nil, os.ErrNotExist
