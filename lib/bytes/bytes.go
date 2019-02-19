@@ -25,6 +25,8 @@ const (
 	HexaLetters = "0123456789abcedfABCDEF"
 	// Hexaletters contains list of hexadecimal characters in lower cases.
 	Hexaletters = "0123456789abcedf"
+
+	Numbers = "0123456789"
 )
 
 var (
